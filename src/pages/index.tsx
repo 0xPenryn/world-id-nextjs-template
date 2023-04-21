@@ -1,4 +1,4 @@
-import { IDKitWidget } from "@worldcoin/idkit";
+import { CredentialType, IDKitWidget } from "@worldcoin/idkit";
 import type { ISuccessResult } from "@worldcoin/idkit";
 import styles from "../styles/Home.module.css";
 
@@ -36,7 +36,7 @@ export default function Home() {
 	return (
 		<div className={styles.container}>
 			<div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
-				<IDKitWidget action="free-stuff" onSuccess={onSuccess} handleVerify={handleProof} app_id={process.env.NEXT_PUBLIC_WLD_APP_ID!}>
+				<IDKitWidget action="free-stuff" onSuccess={onSuccess} handleVerify={handleProof} app_id={process.env.NEXT_PUBLIC_WLD_APP_ID!} credential_types={[CredentialType.Orb, CredentialType.Phone]}>
 					{({ open }) => <button onClick={open}>Verify with World ID</button>}
 				</IDKitWidget>
 			</div>
